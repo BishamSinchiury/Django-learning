@@ -1,0 +1,67 @@
+What is Frontend?
+    Frontend refers to the part of a website that users interact with directly.
+    It includes everything users see: text, images, buttons, forms, layout, and colors.
+    The frontend is built using three core technologies:
+
+HTML: HTML, which stands for HyperText Markup Language, is the standard language used to create and structure content on the web. It is not a programming language, but a markup language that uses tags to define elements such as headings, paragraphs, links, images, and more. These tags help web browsers understand how to display the content. For example, <p> defines a paragraph, while <h1> defines a heading. Every webpage you see is built on a structure made with HTML. It acts like the skeleton of a webpage, giving shape and meaning to all the visible content. HTML files are written in plain text and saved with the .html extension. It is essential for anyone who wants to build websites, and it forms the base upon which more advanced technologies like CSS and JavaScript work.
+
+CSS: CSS, which stands for Cascading Style Sheets, is the language used to style and design the appearance of HTML elements on a webpage. While HTML structures the content (like text, headings, images), CSS is what makes that content look good—it controls the layout, colors, fonts, spacing, alignment, and even animations. For example, if HTML creates a button, CSS decides its background color, border, size, and hover effect. CSS can be written directly inside HTML, but it’s usually kept in a separate .css file to keep the code clean and organized. It works by selecting HTML elements (like all <p> tags or elements with a specific class) and applying styling rules to them. CSS makes websites attractive, responsive, and user-friendly across different screen sizes and devices. Without CSS, all web pages would look plain and boring—just black text on a white background.
+
+JS: JavaScript (JS) is a programming language used to make web pages interactive and dynamic. While HTML gives a web page its structure and CSS gives it style, JavaScript brings it to life. With JS, you can add features like buttons that respond when clicked, forms that check for errors, sliders, pop-ups, animations, and much more. It can also fetch data from a server without reloading the whole page—this is how modern web apps like Gmail or Facebook work smoothly. JavaScript is run directly in the browser, and it can be written inside the HTML file or in a separate .js file. It can access and change HTML and CSS through something called the DOM (Document Object Model). JavaScript is one of the core technologies of web development and is essential for creating responsive, user-friendly websites and applications.
+
+Why are Web Frameworks Important?
+    Keep code organized: 
+        Frameworks enforce patterns and structure that make code easier to read, maintain, and scale.
+    Security: 
+        Many frameworks have built-in protections against common web vulnerabilities like SQL injection or cross-site scripting.
+    Community support: 
+        Popular frameworks have large communities, plugins, and tutorials that make learning and problem-solving easier.
+    Best practices: 
+        Frameworks encourage or enforce industry best practices, so you write better, cleaner code.
+
+Examples of Web Frameworks
+    Django (Python): 
+        A powerful, “batteries-included” framework that comes with tools for everything—database handling, authentication, admin panels, and more. Great for building complex, secure websites quickly.
+    Flask (Python): 
+        A lightweight, minimal framework that gives you more control. It’s great for smaller apps or when you want to add only what you need.
+    React (JavaScript): 
+        Although technically a frontend library, it’s often called a framework because it helps build user interfaces efficiently with reusable components.
+    Express.js (JavaScript/Node.js):  
+        A fast, minimalist backend framework for building APIs and web servers with Node.js.
+    Ruby on Rails (Ruby): 
+        A convention-over-configuration framework focused on rapid development with clean, readable code.
+
+History of Django
+    Django is a high-level Python web framework that was originally created to make building complex, database-driven websites faster and easier. It was developed in 2003 by two web developers, Adrian Holovaty and Simon Willison, who were working at a local newspaper called the Lawrence Journal-World in Lawrence, Kansas, USA.
+
+    At that time, they faced the challenge of quickly developing and maintaining several newsroom websites with tight deadlines. To solve this, they built Django as an internal framework to handle repetitive web development tasks like database access, URL routing, template rendering, and user authentication.
+
+    Because it worked so well, they decided to release Django as an open-source project in July 2005. Since then, Django has grown massively in popularity due to its “batteries-included” philosophy—meaning it comes with almost everything you need to build web apps out of the box.
+
+    Over the years, Django has been continuously improved by a large global community, becoming one of the most popular and reliable frameworks for Python web development.
+
+Short Answer Questions
+    1. What is the role of frontend in web development?
+    2. Define a web framework.
+    3. Name any two frontend technologies.
+    4. What are the basic technologies used to build a frontend interface?
+    5. Mention one major difference between frontend and backend.
+    6. When was Django first released?
+    7. Who developed Django?
+    8. What language is Django written in?
+    9. Mention one reason Django became popular after its release.
+    10. Name any two popular web frameworks apart from Django.
+
+Long Answer Questions
+    1. Explain the basic structure and technologies of the frontend in web development.
+    2. Describe what a web framework is and why it is used.
+    3. Compare and contrast frontend and backend development.
+    4.Write a detailed note on the history of Django.
+    5.Discuss the evolution of Django and its contribution to modern web development.
+
+
+Exercise & Questions
+    Exercise: Build a Simple Static Webpage
+    Objective:
+    Create a static webpage using HTML, CSS, and a little JavaScript that introduces the History of Django and explains what a Web Framework is.
+

@@ -1,0 +1,38 @@
+Introduction
+    In any web application, handling invalid URLs or paths that don’t exist is crucial for user experience. Django provides built-in support for error handling, including rendering a custom 404 Page Not Found. Additionally, Django allows defining dynamic URL patterns using wildcards and variables to handle flexible routing of content.
+
+What is a 404 Error?
+    A 404 error occurs when a user requests a page that does not exist on the server. 
+    This could happen due to:
+        Typing an incorrect URL
+        Trying to access a deleted page
+        Following a broken link
+    By default, Django shows a basic debug-style error page (in development mode) or a generic 404 page (in production mode).
+
+Custom 404 Error Page
+    To customize the 404 error page, follow these steps:
+
+Step 1: Create a Template
+    Create an HTML file named 404.html
+    or inside your app’s templates directory:
+    File: templates/404.html
+
+Step 2:
+    In ADCS/settings.py set
+    DEBUG = False
+    ALLOWED_HOSTS = ['*'] (if you want to allow all the host or use actual domain/IP in production)
+
+Django will now render the custom 404.html for any page not found.
+
+Wildcard Pattern and Dynamic URLs
+
+What Are Dynamic URLs?
+    Dynamic URLs include variables that change depending on user input or context. These variables are extracted from the URL and passed to the view.
+    For example:
+
+Wildcard-Like Patterns (Catch-All / Optional)
+While Django doesn’t allow real wildcards (*), you can use: No any Examples for this one
+re_path(r'^files/.+$', views.file_handler)
+Or use <path:subpath> for deeper paths:
+example
+path('files/<path:subpath>/', views.file_view)

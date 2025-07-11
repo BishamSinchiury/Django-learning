@@ -1,0 +1,50 @@
+Template Basics
+
+What is a Template?
+A template in Django is an HTML file that defines the structure and layout of a web page. It contains both static parts (like HTML) and dynamic parts (using Django Template Language) which are populated by the Django view.
+Templates separate the presentation logic from the business logic, enabling developers to keep their code clean and organized.
+
+Template Language
+Django uses its own template language to embed dynamic content. It uses double curly braces {{ }} for variables and {% %} for logic (like loops and conditions).
+
+Creating and Rendering a Template
+By default, templates are stored in a folder named templates inside the Django app directory. It is recommended to create a subdirectory within templates with the same name as the app.
+
+Configuring Template Directory in settings.py
+Make sure the DIRS option inside TEMPLATES is configured to look for template directories:
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],  # Optional, for global templates
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+Creating a Template
+Create an HTML file with Django Template Language: home.html 
+example: Unit3/templates/Unit3/home.html
+
+Rendering a Template in a View
+Use the render() function in views to load and return a template: views.py
+example: Unit3/views.py
+
+Template Tags and Filter Tags
+Template Tags
+
+Template tags allow you to perform logic in templates like looping, conditionals, and template inheritance.
+
+Examples:
+{% if condition %}...{% endif %}
+{% for item in list %}...{% endfor %}
+{% block content %}...{% endblock %}
+{% include 'template.html' %}
+
+More and Example on this later

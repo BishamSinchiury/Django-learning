@@ -1,0 +1,51 @@
+Dynamic Content with Views
+    Introduction to Views
+    In Django, a view is a Python function or class that receives a web request and returns a web response. Views control what data is presented and how it is displayed, making them a central part of generating dynamic content in a web application.
+        A view can return:
+        An HTML web page
+        A redirect
+        A 404 error
+        JSON data (for APIs)
+    Creating a Basic View
+        A view is typically created in the views.py file inside a Django app.
+        Example: 
+            Unit2/views.py
+            line: 5-6
+
+Request Processing in Django
+
+The Request-Response Cycle
+    Django follows a systematic process to handle incoming HTTP requests. The core steps are:
+
+    1. Request Initiation:
+        The user types a URL in the browser, triggering an HTTP request to the Django server.
+
+    2. URL Dispatcher:
+        Django reads the request URL and matches it with a pattern in urls.py.
+    
+    3. View Execution:
+        The matched URL pattern maps to a view function or class. The view processes the request and prepares a response.
+
+    4. Response Return:
+        The view returns an HttpResponse object, which Django sends back to the browser:
+    
+    example img: Static/Unit2/Request_response_cycle_django.jpg
+
+    Accessing Request Data
+    Django provides access to incoming request data via the request object.
+    Examples: 
+        request.GET
+        request.POST
+        request.user
+        request.method
+
+URLs and Mapping URLs with Views
+
+Role of urls.py
+    The urls.py file is responsible for defining how different URL patterns are routed to specific views. This is called URLconf (URL configuration).
+    Every Django project includes a main urls.py, and each app can have its own urls.py for modular routing.
+
+Creating URL Patterns
+    URL patterns are defined using the path() function from django.urls.
+    Example: Unit2/urls.py
+

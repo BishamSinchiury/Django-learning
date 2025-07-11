@@ -1,0 +1,254 @@
+What is Python?
+    Python is an interpreted, high-level programming language runtime that executes Python code. The Python installation includes the interpreter (python.exe), standard library, and tools needed to run .py files on your system.
+
+What is pip?        
+    pip is the package installer for Python. It allows you to download, install, and manage third-party Python libraries and tools from the Python Package Index (PyPI) or other sources.
+
+What is a Virtual Environment:
+    A virtual environment in Python is an isolated workspace that allows you to keep the dependencies (packages and libraries) required for a project separate from those used by other projects or the system-wide Python installation. This is important because different projects may require different versions of the same package, and installing everything globally can lead to conflicts and errors. By creating a virtual environment, you ensure that each project has its own clean, self-contained setup, making your development process more organized, reliable, and easier to manage. It’s a best practice followed by professionals to avoid dependency issues and maintain project stability.    
+
+
+Download and Install Python:
+    Step 1:
+        Go to https://www.python.org/downloads/ and download latest python. 
+    Step 2:
+        Install python : During installation, check ✅ “Add Python to PATH”
+
+    Adding Python to the system PATH during installation allows you to run Python and its tools (like python, pip, etc.) directly from the command line without needing to navigate to the Python installation folder. The PATH is an environment variable that tells the operating system where to look for executable programs. Without adding Python to PATH, you’d have to type the full path to the Python executable every time you want to use it, which is inconvenient and error-prone. Adding it makes Python accessible globally from any directory in the terminal, simplifying development and automation tasks. 
+
+    Step 3:
+        Open Command Prompt and run: python --version
+        You should see something like Python 3.12.x
+
+    Step 4:
+        Install pip (Python package manager)
+        Usually comes with Python. 
+        Check with: pip --version
+
+Django
+    Django is a high-level Python web framework that allows developers to build secure, scalable, and maintainable web applications quickly. It follows the Model-View-Template (MVT) architectural pattern and emphasizes rapid development and clean, pragmatic design.
+
+What is a Virtual Environment:
+    A virtual environment in Python is an isolated workspace that allows you to keep the dependencies (packages and libraries) required for a project separate from those used by other projects or the system-wide Python installation. This is important because different projects may require different versions of the same package, and installing everything globally can lead to conflicts and errors. By creating a virtual environment, you ensure that each project has its own clean, self-contained setup, making your development process more organized, reliable, and easier to manage. It’s a best practice followed by professionals to avoid dependency issues and maintain project stability.
+
+
+    Create a virtual Environment:
+    python -m venv <name of virtual enviroment>
+    eg: python -m venv venv
+
+    Activate Virtual Environment:
+    venv/Scripts/activate
+
+
+Django Installation:
+    After activating virtual Environment. Install Django with:
+    pip install django
+    Verify django installation with:
+    django-admin --version
+
+Starting your Django Project:
+    commamds:
+        django-admin startproject myproject
+        cd myproject
+        python manage.py runserver   
+
+Understanding File Structure in Django
+    Top-Level Files
+        manage.py
+        Think of this as Django’s command-line assistant.
+        Used to run commands like:
+            python manage.py runserver
+            python manage.py migrate
+            python manage.py createsuperuser
+        It’s your main entry point during development.
+        Inner Project Folder (Named the same as your project)
+        This is the actual Django configuration package — not your app code yet.
+
+        __init__.py
+        Makes the folder a Python package.
+        Usually empty.
+
+        settings.py
+            Contains:
+                Installed apps
+                Database config
+                Static/media file settings
+                Middleware
+                Security settings
+        
+        urls.py
+            The router of your project.
+            Maps URLs to views using urlpatterns.
+
+        asgi.py and wsgi.py
+            These files are entry points for deployment.
+            wsgi.py is used for most production deployments (Apache, Gunicorn).
+            asgi.py is used for asynchronous servers like Daphne (for websockets, etc).
+
+Adding an App:
+    A Django app is a modular component of a Django project. It’s like a self-contained feature or unit of your website — blog, users, payments, etc.
+    A Django project can contain many apps. A Django app can be reused in multiple projects.
+
+Why Create Django Apps?
+    Organizes code by feature or functionality
+    Makes it easier to manage, test, and reuse
+    Follows Django’s “pluggable apps” philosophy
+
+How to Create a Django App
+    Inside your Django project, run: python manage.py startapp <app name>
+    example : python manage.py startapp blog
+    This creates a folder blog/ with core files.
+
+File Structure of a Django App
+    __init__.py
+        Makes blog a Python package
+        Usually left empty
+    admin.py
+        Used to register models for the Django admin interface.
+    apps.py
+        Django’s internal config for the app.
+        Class-based config:
+    models.py
+        Define your database schema (tables)
+    views.py
+        Defines how the app responds to requests.
+    tests.py
+        For writing unit tests for your app.
+    urls.py (you create this manually)
+        Defines routes for this app:
+    migrations/
+        Stores database change files generated from your models.
+
+What is MVC?
+    MVC stands for Model View Controller.
+    It’s a software design pattern that separates application logic into three distinct parts, making your code modular, manageable, and scalable.
+    Used widely in web development, desktop apps, and even mobile app.
+
+Purpose of MVC.
+    Keep data, logic, and UI separate.
+    Make the code easier to maintain, test, and scale.
+    Enable team collaboration — frontend and backend developers can work independently.
+
+The MVC Components (with Explanation)
+
+Model
+    Manages the data and business logic.
+        Deals with the database or other data sources.
+        Defines the structure, rules, and relationships of your data.
+
+View
+    Handles the presentation/UI.
+        What the user sees.
+        Displays data from the Model.
+        Gets data via the Controller.
+
+Controller
+Handles user input and routes it to the right logic.
+    Processes requests and returns responses.
+    Connects the View and the Model.
+
+
+Flow of MVC:
+    User --> Controller --> Model --> View --> User
+
+Benefits of MVC
+    Separation of Concerns: UI and business logic are isolated.
+    Modular Code: Easier to maintain, test, and reuse.
+    Collaborative: Backend devs can work on models/controllers, frontend devs on views.
+    Scalability: Easily add features or shift UI without touching backend logic.
+
+Django provides a command-line interface (CLI) through the manage.py file. These commands let you:
+    Create apps
+    Run development server
+    Handle database migrations
+    Create superusers
+    Interact with the database
+    Run custom scripts
+
+1.  python manage.py runserver – Start Development Server
+    python manage.py runserver
+    Starts Django's built-in development server.
+
+2.  startapp – Create a New App
+    python manage.py startapp blog
+    Creates a new Django app folder with required files.
+
+3.  makemigrations – Create Migration Files
+    python manage.py makemigrations
+    Detects changes in models.py and creates migration files (like versioned DB instructions).
+
+4.  migrate – Apply Migrations to the Database
+    python manage.py migrate
+    Applies all unapplied migrations to your actual database.
+
+5.  createsuperuser – Create Admin User
+    python manage.py createsuperuser
+    Creates an admin login for the Django admin dashboard.
+
+6.  shell – Open Django Python Shell
+    python manage.py shell
+    Starts a Python shell with full access to your Django models and settings.
+
+7.  showmigrations – List Migrations
+    python manage.py showmigrations
+    Shows which migrations exist and whether they’ve been applied.
+
+Introduction
+    PostgreSQL is a powerful, open-source object-relational database system. Django supports PostgreSQL as one of its official database backends. Using PostgreSQL with Django provides advanced features such as JSON fields, full-text search, and better performance for large-scale applications.
+
+Prerequisites
+    Before setting up PostgreSQL with Django, ensure the following are installed:
+    Python
+    pip
+    Django
+    PostgreSQL
+    psycopg2 (PostgreSQL adapter for Python)
+
+Step-by-Step Guide to Configure PostgreSQL with Django
+
+Step 1: Install PostgreSQL
+    Download and install PostgreSQL from the official site:
+    During installation, note down:
+    Username (default: postgres)
+    Password
+    Port (default: 5432)
+
+Step 2: Create a PostgreSQL Database
+    Use pgAdmin or the command line to create a new database.
+    Example command (on terminal or psql shell):
+    CREATE DATABASE myprojectdb;
+    You can also create a new user (optional):
+    CREATE USER myuser WITH PASSWORD 'mypassword';
+    GRANT ALL PRIVILEGES ON DATABASE myprojectdb TO myuser;
+    GRANT ALL PRIVILEGES ON DATABASE myprojectdb TO myuser;
+    \c myprojectdb
+    GRANT ALL PRIVILEGES ON SCHEMA public TO myuser;
+
+Step 3: Install psycopg2
+    Inside your Django project virtual environment, install the PostgreSQL adapter:
+    pip install psycopg2-binary
+    Step 4: Configure settings.py
+    In your Django project folder, open the settings.py file and locate the DATABASES section. Replace the default SQLite configuration with PostgreSQL configuration:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'myprojectdb',
+        'USER': 'myuser',
+        'PASSWORD': 'mypassword',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+Step 5: Apply Migrations
+    Once the configuration is complete, apply initial migrations to set up the default database schema:
+    python manage.py migrate
+    This will create all the necessary tables required by Django's built-in apps.
+
+Step 6: Run the Server
+    To verify that everything works correctly, run the development server:
+    python manage.py runserver
+    If the server runs without error, your database configuration is complete.
+
+
