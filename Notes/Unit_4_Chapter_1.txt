@@ -1,0 +1,101 @@
+What is the MTV Development Pattern?
+Django follows the MTV (Model–Template–View) architectural pattern, which is similar to MVC (Model–View–Controller), but with slightly different terminology.
+
+Components and their Roles:
+    Model	
+        Handles the data and database structure
+    Template	
+        Manages how data is presented in HTML (UI)
+    View	
+        Controls logic – connects models to templates
+
+Flow of Control:
+    User makes a request → View handles logic → Model fetches data → Template displays result
+
+Defining the Models
+    Models in Django are Python classes that define the structure of your database tables. They are defined in the models.py file of each app.
+
+    Example: Unit4/models.py
+
+Adding Model String Representation
+    Django models should define the __str__() method. It tells Django what to show when the object is printed in the admin panel or shell.
+
+Why __str__() Is Important?
+    Makes admin interface readable
+    Useful during debugging
+    Shows meaningful representation in shell and lists
+
+    Demonstrating __str__() in Django
+    Open Django shell using: python manage.py shell
+    Import your model: from Unit4.models import Student
+    Without __str__() method in the model, running Student.objects.first() will return: <Student: Student object (1)>
+    Now, add the __str__() method in your Student model
+    Save the file, restart the shell, and run the same command
+    This time it will return:
+    <Student: Bisham>
+    This proves that __str__() customizes how your model instances are displayed in the shell and admin panel.
+
+
+Insert and Update Data, Objects Selection — Explained with Examples
+INSERTING DATA (Create)
+Django ORM lets you add new records in the database easily, no SQL required.
+
+You open the shell and create a new task like this:
+Task.objects.create(name="Homework", description="Complete Django's homework by Sunday", done=True)
+This creates and saves the task immediately.
+
+Alternatively, you can create an instance first, set attributes, then save:
+task = Task(name="Homework", description="Complete Django's homework by Sunday", done=True)
+Then call task.save() to store it in the database.
+
+UPDATING DATA
+To update data, first retrieve the object you want:
+
+For example, get the task with ID 1:
+task = Task.objects.get(id=1)
+Then change a field:
+task.done = True
+Finally, save changes:
+task.save()
+
+You can also bulk update multiple objects at once:
+For example, set all tasks marked done to not done:
+Task.objects.filter(done=True).update(done=False)
+This updates all matching tasks in one query, without looping.
+
+SELECTING OBJECTS (Read)
+Django ORM lets you retrieve data in many flexible ways:
+
+Get all tasks:
+Task.objects.all() returns a list of all tasks.
+
+Get first or last record:
+Task.objects.first() returns the earliest created task.
+Task.objects.last() returns the latest.
+
+Get a specific task by ID or name:
+Task.objects.get(id=1) returns the task with ID 1.
+Task.objects.get(name="Homework") fetches the task named "Homework".
+
+Filter tasks by a condition:
+Task.objects.filter(done=False) gets all tasks not done yet.
+
+Exclude tasks:
+Task.objects.exclude(done=True) returns all tasks that are not done.
+
+Order tasks:
+Task.objects.all().order_by('due_date') sorts tasks by due date ascending.
+Task.objects.all().order_by('-priority') sorts tasks by priority descending.
+
+Count tasks:
+Task.objects.count() returns total tasks count.
+Task.objects.filter(done=True).count() counts only done tasks.
+
+Check existence:
+Task.objects.filter(name="Homework").exists() returns True if a task named "Homework" exists, else False.
+
+Chain queries for complex filters:
+For example, get tasks done by "Aarav" but exclude urgent ones, ordered by due date:
+Task.objects.filter(done=True, assigned_to="Aarav").exclude(priority="High").order_by('due_date')
+
+This pattern of using create, update, filter, exclude, order, and count gives you a powerful toolkit to interact with your database intuitively using Django’s ORM.
