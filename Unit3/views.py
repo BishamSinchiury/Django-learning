@@ -13,3 +13,6 @@ def blog(request):
         'message': 'Welcome to the Blogpage!'
     }
     return render(request, 'Unit3/blog/blog.html', context)
+
+def base(request):
+    return render(request, 'Unit3/extention.html')

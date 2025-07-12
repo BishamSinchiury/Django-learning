@@ -46,5 +46,59 @@ Examples:
 {% for item in list %}...{% endfor %}
 {% block content %}...{% endblock %}
 {% include 'template.html' %}
-
 More and Example on this later
+
+
+3 Filter Tags
+Filter tags are used to modify variables. They are applied using the pipe | symbol.
+Examples:
+{{ name|upper }} → Converts name to uppercase
+{{ text|length }} → Returns the number of characters
+{{ date|date:"F j, Y" }} → Formats a date
+Example:
+<p>{{ message|lower }}</p>
+<p>{{ students|length }} students found.</p>
+More and Example on this later
+
+Template Structuring and Reusability in Django
+
+Sub-directories in Templates
+
+Introduction
+    Django allows organizing templates using sub-directories to maintain a clean and modular file structure, especially in large projects with multiple apps.
+
+Why Use Sub-directories?
+    Helps avoid name conflicts between templates.
+    Enhances project readability and maintainability.
+    Allows grouping related templates logically (e.g., for different apps or sections).
+
+How to Use Sub-directories
+    When placing templates in sub-folders, Django requires that you reference the path using forward slashes in the render() function.
+    Example Directory Structure:Unit3/templates/Unit3/blog/blog.htm
+
+What is the {% include %} Tag?
+    In Django, the {% include %} tag allows you to reuse template code by including one template inside another. This helps avoid repeating code, keeps templates clean, and makes them easier to maintain.
+
+    Syntax:
+        {% include "relative/path/to/template.html" %}
+    
+    example: Unit3/templates/Unit3/home.html
+
+What is Template Inheritance?
+    Template inheritance in Django allows you to create a base (or parent) template with a common structure (like headers, navbars, and footers), and then extend this template in other pages. This follows the DRY (Don't Repeat Yourself) principle.
+
+Why Use It?
+    Avoid repeating the same HTML code in every file.
+    Maintain layout consistency.
+    Makes updates easier—change one base template and all child templates are updated.
+
+Example: Unit3/templates/Unit3/extention.html
+
+
+
+
+
+
+
+
+
