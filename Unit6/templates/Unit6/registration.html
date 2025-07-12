@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <!-- Show non-field errors (errors raised in clean()) -->
+        {% if form.non_field_errors %}
+            <div style="color: red;">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <!-- Individual field with label, input, and field-specific errors -->
+        <p>
+            {{ form.password.label_tag }}<br>
+            {{ form.password }}<br>
+            {% if form.password.errors %}
+                <span style="color: red;">{{ form.password.errors }}</span>
+            {% endif %}
+        </p>
+
+        <p>
+            {{ form.confirm_password.label_tag }}<br>
+            {{ form.confirm_password }}<br>
+            {% if form.confirm_password.errors %}
+                <span style="color: red;">{{ form.confirm_password.errors }}</span>
+            {% endif %}
+        </p>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
+
+{% comment %} 
+form.non_field_errors:
+Shows errors raised in the clean() method that apply to the whole form (like password mismatch). This is displayed above all fields to catch user attention.
+form.fieldname.errors:
+Displays errors related to individual fields, such as required field missing or invalid format. Displayed right next to the respective field for clarity.
+The form uses {{ form.password }} and {{ form.confirm_password }} to render input elements with PasswordInput widgets (masked inputs).
+The clean() method runs after individual field validators and can access multiple fields together for cross-validation.
+If the passwords don’t match, ValidationError is raised, and the form is not valid (form.is_valid() will be False).
+Errors are automatically rendered by Django and styled here with inline red text for visibility. 
+{% endcomment %}
